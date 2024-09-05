@@ -1,4 +1,4 @@
-def t_remove(tup, element):  # Removes the first occurrence of the element in the tuple
+def t_remove(tup, element):  # Removes the first occurrence of the element in the tuple and returns the updated tuple
     if element not in tup:
         raise ValueError(f"{element} not found in tuple")
 
