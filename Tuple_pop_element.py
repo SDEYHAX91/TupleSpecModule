@@ -1,21 +1,13 @@
-print("FUNCTION / PROGRAM TO REMOVE TUPLE ELEMENT WITH THE HELP OF INDEX")
-def pop_tuple_val(tup,size):
-    x = int(input("\nEnter position to delete element: "))
-    pos = x - 1
+def t_pop(tup,index): #removes tuple element from specified index and returns updated tuple
+    if index < 0 or index >= len(tup):
+        raise IndexError
+    else:
+        for i in range(len(tup)):
+            if i == index:
+                tup = tup[:i] + tup[i+1:]
+                break
+        return tup
 
-    if pos < 0 or pos >= size:
-        print("Invalid. Try again.")
-        pop_tuple_val(tup,size)
-    
-    else:    
-        removed = tup[pos]
-        tup = tup[:pos] + tup[pos + 1:]
-        
-        print("\nRemoved element from the tuple = ",removed)
-        print("Updated tuple is = ",tup)
-    
-size = int(input("Enter total no. of tuple elements: "))
-lst = [int(input(f"Enter value for element {i+1} = ")) for i in range(size)]
-tup = tuple(lst)
-
-pop_tuple_val(tup,size)
+tup = (1,3,5,7,9)
+tup = t_pop(tup,3)
+print(tup)
